@@ -1,25 +1,22 @@
-from turtle import Turtle
+import turtle as t
 import random
 
-tim = Turtle()
+tim = t.Turtle()
+t.colormode(255)
 
-colors = ["cornflower blue","deep sky blue","red","blue","pink","yellow"]
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
 
-# def draw_shape(num_sides):
-#     angle = 360 / num_sides
-#     for _ in range(num_sides):
-#         tim.forward(100)
-#         tim.right(angle)
-
-# for shape_side in range(3, 10):
-#     tim.color(random.choice(color))
-#     draw_shape(shape_side)
-
-direction = [0,90,180,270]
-
+directions = [0, 90, 180, 270]
 tim.pensize(7)
-tim.speed(10)
-for _ in range(1000):
-    tim.color(random.choice(colors))
+tim.color(random_color())
+tim.speed(1)
+
+while(True):
+    tim.color(random_color())
     tim.forward(30)
-    tim.setheading(random.choice(direction))
+    tim.setheading(random.choice(directions))
